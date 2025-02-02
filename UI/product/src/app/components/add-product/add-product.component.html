@@ -1,0 +1,52 @@
+<h2>Enter Product Details Here:</h2>
+
+<form #productForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+    <fieldset>
+        <table>
+            <tr>
+                <td><label for="id">Product ID: </label></td>
+                <td><input type="text" id="id" name="id" [(ngModel)]="product.id" required /></td>
+            </tr>
+
+            <tr>
+                <td><label for="prodName">Product Name: </label></td>
+                <td><input type="text" id="prodName" name="prodName" [(ngModel)]="product.prodName" required /></td>
+            </tr>
+
+            <tr>
+                <td><label for="quantity">Quantity: </label></td>
+                <td><input type="number" id="quantity" name="quantity" [(ngModel)]="product.quantity" required /></td>
+            </tr>
+
+            <tr>
+                <td><label for="unitPrice">Unit Price: </label></td>
+                <td><input type="number" id="unitPrice" name="unitPrice" [(ngModel)]="product.unitPrice" required />
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="mId">Manufacturer ID: </label></td>
+                <td><input type="text" id="mId" name="mId" [(ngModel)]="product.mId" required /></td>
+            </tr>
+
+            <tr>
+                <td><label for="manufacturer">Manufacturer: </label></td>
+                <td><input type="text" id="manufacturer" name="manufacturer" [(ngModel)]="product.manufacturer"
+                        required /></td>
+            </tr>
+
+            <tr>
+                <td><label for="inStock">In Stock: </label></td>
+                <td>
+                    <input type="checkbox" id="inStock" name="inStock" [(ngModel)]="product.inStock" />
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+
+    <div id="buttons">
+        <input type="submit" [disabled]="updateEnabled || productForm.invalid" />
+        <button type="button" [disabled]="!updateEnabled || productForm.invalid" (click)="onEdit()">Update</button>
+        <input type="reset" />
+    </div>
+</form>
