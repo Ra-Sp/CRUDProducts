@@ -2,3 +2,4 @@
 *.vsix
 bin/
 obj/
+!UI/Product/
